@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 type galeryContext = {}
 
@@ -16,4 +16,8 @@ export function GaleryProvider({ children }:GaleryProviderProps) {
       {children}
     </GaleryContext.Provider>
   )
+}
+
+export function useGalery() {
+  return useContext(GaleryContext)
 }
