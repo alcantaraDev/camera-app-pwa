@@ -1,9 +1,12 @@
 "use client"
 
+import { useGalery } from "@/context/galery"
 import { CameraPlus } from "@phosphor-icons/react"
 import { ChangeEvent } from "react"
 
 export function Camera() {
+  const { addImage } = useGalery()
+
   const handleUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target   
 
@@ -18,10 +21,13 @@ export function Camera() {
       fileReader.readAsDataURL(file)
       fileReader.onload = () => {
         const base64Image = fileReader.result
-        // enviar a imagem para o contexto e limpar o arquivo selecionado
-        console.log("base64 image: ", base64Image)
+        if (typeof base64Image == "string") {
+          addImage({
+            base64: base64Image
+          })
+        }
       }
-
+      
       return
     }
     
