@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        <Header.Root>
+        {/* <Header.Root>
           <Header.Link href='/'>Home</Header.Link>
           <Header.Link href='/form'>Form</Header.Link>
-        </Header.Root>
+        </Header.Root> */}
         {children}
       </body>
     </html>
