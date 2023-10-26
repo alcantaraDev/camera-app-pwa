@@ -1,4 +1,4 @@
 export type image = {
-  id: string // uuid
+  id: number // uuid
   base64: string // base64 image
 }

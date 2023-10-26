@@ -5,7 +5,7 @@ import { CameraPlus } from "@phosphor-icons/react"
 import { ChangeEvent } from "react"
 
 export function Camera() {
-  const { addImage } = useGalery()
+  const { addImage, galery } = useGalery()
 
   const handleUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target   
@@ -22,12 +22,20 @@ export function Camera() {
       fileReader.onload = () => {
         const base64Image = fileReader.result
         if (typeof base64Image == "string") {
+          let id = 0
+
+          if (galery.length) {
+            const lastImage = galery[galery.length - 1]
+            id = lastImage.id + 1
+          }
+
           addImage({
+            id,
             base64: base64Image
           })
         }
       }
-      
+
       return
     }
     
