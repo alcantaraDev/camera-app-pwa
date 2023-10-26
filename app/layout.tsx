@@ -1,4 +1,4 @@
-import { Header } from '@/components/header'
+import { Images } from '@phosphor-icons/react'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -18,10 +18,6 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={inter.className}>
-        {/* <Header.Root>
-          <Header.Link href='/'>Home</Header.Link>
-          <Header.Link href='/form'>Form</Header.Link>
-        </Header.Root> */}
         {children}
       </body>
     </html>
